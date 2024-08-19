@@ -1,0 +1,7 @@
+MONGO_URL = 'mongodb+srv://arkxroot:Fantasmas_11@cluster0.k3gchyb.mongodb.net/coder69900?retryWrites=true&w=majority&appName=Cluster0'
+PERSISTENSE = "MONGO"
+JWT_SECRET='s3cr3tK3y'
+MAILER_HOST='smtp.gmail.com'
+MAILER_PORT=587
+MAILER_USERNAME=
+MAILER_PASSWORD=
