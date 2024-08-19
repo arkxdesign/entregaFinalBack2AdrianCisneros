@@ -17,33 +17,16 @@ const router = Router();
 router.post("/register", async (req, res) => {
   const { first_name, last_name, age, email, role, password } = req.body;
 
-  if (!first_name || !last_name || !email || !password || !age) {
-    return res.status(400).json({ error: "Todos los campos son obligatorios" });
+  if (!first_name || !last_name || !email || !age || !password) {
+    return res.status(400).json({ error: "Todos los campos <first_name, last_name, email, age, password> son obligatorios" });
   }
 
   try {
-    const hashPassword = await createHash(password);
-
+    const hashPassword = await createHash(password);        
     const userCart =  await service.createCart();
-
-    const user = await userModel.create({
-      first_name,
-      last_name,
-      age,
-      email,
-      password: hashPassword,
-      role,
-      cart: userCart._id,
-    });
-
-    await mailService.sendMail({
-      to: email,
-      subject: "Bienvenido",
-      type: "welcome",
-      name: first_name,
-    });
-
-
+    const user = await userModel.create({ first_name, last_name, age, email,  password: hashPassword, role, cart: userCart._id,});
+    console.log(user);
+    // await mailService.sendMail({ to: email, subject: "Bienvenido", type: "welcome", name: first_name,});
     res.status(201).json(user);
   } catch (error) {
     res.status(500).json({ error: error.message });

@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
 import 'dotenv/config';
 
-const connectionString = process.env.MONGO_URL || 'mongodb://localhost:27017/ecommerce';
+const connectionString = process.env.MONGO_URL;
+
+//|| 'mongodb://localhost:27017/ecommerce'
 
 export const initMongoDB = async() => {
     try {

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { __dirname } from "../utils/path.js";
+import __dirname  from "../path.js";
 import * as productService from "../services/product.services.js";
 import * as cartService from "../services/cart.services.js";
 
