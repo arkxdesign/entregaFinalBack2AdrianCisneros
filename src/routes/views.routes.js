@@ -2,8 +2,6 @@ import { Router } from "express";
 import __dirname  from "../path.js";
 import * as productService from "../services/product.services.js";
 import * as cartService from "../services/cart.services.js";
-
-
 const router = Router();
 
 const generateLink = (url, page, limit, title, sort) => {
